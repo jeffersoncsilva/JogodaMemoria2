@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/corBranca"
+    android:gravity="center">
+
+
+    <TextView
+        android:id="@+id/txtFinal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/txtFinal"
+        android:textSize="32dp"
+        android:textColor="@color/preto"/>
+
+    <TextView
+        android:id="@+id/txtPontosFinal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="0"
+        android:textSize="40dp"
+        android:textColor="@color/preto"/>
+
+    <Button
+        android:id="@+id/btnVoltaMenuInicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/btnVoltar"
+        android:textSize="28dp"
+        />
+
+
+
+</LinearLayout>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="jcgames.com.br.jogodamemoria2.MainActivity">
+
+
+    <TextView
+        android:id="@+id/txtTopo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txtInicio"
+        android:textSize="32dp"
+        android:textAlignment="center"
+        android:layout_marginTop="25dp" />
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/txtTopo">
+
+        <Button
+            android:id="@+id/btnFacil"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btFacil"
+            android:textSize="24dp"
+            android:onClick="escolhaDificuldade"/>
+
+        <Button
+            android:id="@+id/btMedio"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btMedio"
+            android:textSize="24dp"
+            android:layout_below="@id/btnFacil"
+            android:onClick="escolhaDificuldade"/>
+
+        <Button
+            android:id="@+id/brDificil"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btDificil"
+            android:textSize="24dp"
+            android:layout_below="@id/btMedio"
+            android:onClick="escolhaDificuldade"/>
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

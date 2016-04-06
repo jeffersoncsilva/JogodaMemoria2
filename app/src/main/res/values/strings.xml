@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Jogo da Memoria 2</string>
+    <string name="action_settings">Settings</string>
+    <string name="btFacil">Facil</string>
+    <string name="btMedio">Medio</string>
+    <string name="btDificil">Dificil</string>
+    <string name="txtInicio">Bem vindo! Escolha uma dificuldade e vamos jogar!</string>
+    <string name="pontos">Pontos: </string>
+    <string name="txtFinal">Fim de jogo. Sua pontuação foi de: </string>
+    <string name="btnVoltar">Voltar Inicio.</string>
+</resources>

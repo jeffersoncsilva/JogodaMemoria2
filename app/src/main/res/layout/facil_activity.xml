@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/corBranca">
+
+
+    <TextView
+        android:id="@+id/txtPontos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pontos"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:textColor="@color/preto"
+        android:textSize="28dp"/>
+
+
+    <TableLayout
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:stretchColumns="4"
+        android:gravity="center_horizontal"
+        android:layout_below="@id/txtPontos"
+        android:layout_gravity="center"
+        android:layout_margin="10dp">
+
+        <TableRow>
+            <ImageView
+                android:tag="card_1"
+                android:layout_height="100dp"
+                android:layout_width="100dp"
+                android:src="@drawable/img_0"
+                android:layout_margin="5dp"
+                android:onClick="cliqueImg"
+                />
+            <ImageView
+                android:tag="card_2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/img_0"
+                android:layout_margin="5dp"
+                android:onClick="cliqueImg"/>
+            <ImageView
+                android:tag="card_3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/img_0"
+                android:layout_margin="5dp"
+                android:onClick="cliqueImg"/>
+            <ImageView
+                android:tag="card_4"
+                android:layout_height="100dp"
+                android:layout_width="100dp"
+                android:src="@drawable/img_0"
+                android:layout_margin="5dp"
+                android:onClick="cliqueImg"/>
+        </TableRow>
+
+        <TableRow>
+            <ImageView
+                android:tag="card_5"
+                android:layout_height="100dp"
+                android:layout_width="100dp"
+                android:src="@drawable/img_0"
+                android:layout_margin="5dp"
+                android:onClick="cliqueImg"/>
+            <ImageView
+                android:tag="card_6"
+                android:layout_height="100dp"
+                android:layout_width="100dp"
+                android:src="@drawable/img_0"
+                android:layout_margin="5dp"
+                android:onClick="cliqueImg"/>
+            <ImageView
+                android:tag="card_7"
+                android:layout_height="100dp"
+                android:layout_width="100dp"
+                android:src="@drawable/img_0"
+                android:layout_margin="5dp"
+                android:onClick="cliqueImg"/>
+            <ImageView
+                android:tag="card_8"
+                android:layout_height="100dp"
+                android:layout_width="100dp"
+                android:src="@drawable/img_0"
+                android:layout_margin="5dp"
+                android:onClick="cliqueImg"/>
+        </TableRow>
+
+    </TableLayout>
+
+    
+</LinearLayout>
