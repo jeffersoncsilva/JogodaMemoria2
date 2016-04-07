@@ -12,7 +12,7 @@ import android.widget.ImageView;
 public class Card {
     //private static final Bitmap facedDown = BitmapFactory.decodeResource(getResources(), R.drawable.img_0);
 
-    private int idImagem;
+    private int idImagem; 
     private String nomeImgView;
     private Bitmap facedUp;
     private Bitmap facedDown;
