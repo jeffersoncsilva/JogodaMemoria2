@@ -1,14 +1,11 @@
 package jcgames.com.br.jogodamemoria2;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class CartasControler {
     static final int QTD_IMAGENS_JOGO = 15;
@@ -16,17 +13,19 @@ public class CartasControler {
             R.drawable.img_7, R.drawable.img_8, R.drawable.img_9, R.drawable.img_10, R.drawable.img_11, R.drawable.img_12,
             R.drawable.img_13, R.drawable.img_14, R.drawable.img_15};
 
-    private int pontos = 0;
-    private int qtdCartasEmJogo;
-    private int qtdCartasViradas;
 
+    public static int qtdCartasViradas = 0;
+    public static ArrayList<Card> cartasViradas;
+    public static int pontos = 0;
+    public static boolean gameOver = false;
+
+
+    private int qtdCartasEmJogo;
     private Context context;
     private ArrayList<Card> cards;
-    private ArrayList<Card> cartasViradas;
     private TextView txtPontos;
 
-    private Timer timer;
-
+    
     public CartasControler(int qtdCartas, Context context, TextView txtPt){
         this.txtPontos = txtPt;
         this.qtdCartasEmJogo = qtdCartas;
@@ -37,9 +36,8 @@ public class CartasControler {
         criaCartas(getCartas());
 
         this.qtdCartasViradas = 0;
-
-        timer = new Timer();
     }
+
 
     //para saber quantas e quais cartas serão carregadas.
     private int[] getCartas(){
@@ -80,6 +78,7 @@ public class CartasControler {
         return cartas;
     }
 
+
     //para criar as cartas no jogo, para então desenhalas na tela.
     private void criaCartas(int[] cartas){
         String n = "card_";
@@ -90,22 +89,23 @@ public class CartasControler {
             id++;
             this.cards.add(card);
         }
-
     }
 
 
     public void imgClicada(View v){
-        if(qtdCartasViradas<2)
-            mudaImgTela((ImageView)v);
+       if(!gameOver) {
+           if (qtdCartasViradas < 2)
+               mudaImgTela((ImageView) v);
+           if (qtdCartasViradas == 2) {
+               new ChangeImageTask(txtPontos).execute();
+           }
 
-        if(qtdCartasViradas == 2){
-            timer.scheduleAtFixedRate(new TimerTask(){
-                public void run(){
-                    verificaCartasIguais();
-                    
-                }
-            },2,2);
-        }
+           gameOver = temCartaVirada();
+       }
+        else{
+           Log.i("resultado", "fin de jogo, todas as cartas ja forao viradas.");
+       }
+        gameOver = temCartaVirada();
     }
 
 
@@ -123,20 +123,17 @@ public class CartasControler {
     }
 
 
-    private void verificaCartasIguais(){
-        //cartas iguais.
-        if(cartasViradas.get(0).getIdImagem() == cartasViradas.get(1).getIdImagem()){
-            cartasViradas.clear();
-            qtdCartasViradas = 0;
-            pontos += 5;
-            qtdCartasViradas = 0;
-            this.txtPontos.setText("Pontos: " + pontos);
-        }else{
-            cartasViradas.get(0).voltaImg();
-            cartasViradas.get(1).voltaImg();
-            cartasViradas.clear();
-            qtdCartasViradas = 0;
+    private boolean temCartaVirada(){
+        boolean tem = true;
+
+        for(Card card : cards){
+            if(!card.getFaced()) {
+                tem = false;
+                break;
+            }
         }
+
+        return  tem;
     }
 
 

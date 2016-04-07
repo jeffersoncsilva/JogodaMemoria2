@@ -10,6 +10,8 @@ import android.widget.ImageView;
  * Created by Aluno on 31/03/2016.
  */
 public class Card {
+    //private static final Bitmap facedDown = BitmapFactory.decodeResource(getResources(), R.drawable.img_0);
+
     private int idImagem;
     private String nomeImgView;
     private Bitmap facedUp;

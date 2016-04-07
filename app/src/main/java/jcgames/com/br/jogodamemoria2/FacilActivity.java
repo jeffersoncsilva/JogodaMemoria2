@@ -29,8 +29,7 @@ public class FacilActivity extends Activity {
         txtPontos.setText("Pontos: 0");
 
 
-       // layoutFinal = (LinearLayout)findViewById(R.id.menuFinal);
-       // layoutFinal.setEnabled(false);
+
 
 
         controlador = new CartasControler(8, getBaseContext(), txtPontos);
