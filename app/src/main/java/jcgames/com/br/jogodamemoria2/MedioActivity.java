@@ -21,16 +21,23 @@ public class MedioActivity extends Activity {
         txtPontos.setText("Pontos: 0");
 
 
-        controlador = new CartasControler(12, getBaseContext(), txtPontos);
+        controlador = new CartasControler(12, getBaseContext(), txtPontos, this);
     }
 
 
     @Override
     protected void onDestroy(){
         super.onDestroy();
+        destroyObjetos();
+
+    }
+
+
+    public void destroyObjetos(){
         controlador = null;
         System.gc();
     }
+
 
 
     public void cliqueImg(View v){

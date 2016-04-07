@@ -1,5 +1,6 @@
 package jcgames.com.br.jogodamemoria2;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 import android.view.View;
@@ -16,26 +17,29 @@ public class CartasControler {
 
     public static int qtdCartasViradas = 0;
     public static ArrayList<Card> cartasViradas;
-    public static int pontos = 0;
+    //public static int pontos = 0;
     public static boolean gameOver = false;
 
 
+
+    private ArrayList<Card> cards;
     private int qtdCartasEmJogo;
     private Context context;
-    private ArrayList<Card> cards;
     private TextView txtPontos;
-
+    private Activity act;
+    private Pontos pts;
     
-    public CartasControler(int qtdCartas, Context context, TextView txtPt){
+    public CartasControler(int qtdCartas, Context context, TextView txtPt, Activity ac){
+        this.pts = new Pontos();
+        this.pts.inicaJogo();
         this.txtPontos = txtPt;
         this.qtdCartasEmJogo = qtdCartas;
         this.context = context;
         this.cards = new ArrayList<Card>();
         this.cartasViradas = new ArrayList<>();
-
         criaCartas(getCartas());
-
         this.qtdCartasViradas = 0;
+        this.act = ac;
     }
 
 
@@ -97,21 +101,19 @@ public class CartasControler {
            if (qtdCartasViradas < 2)
                mudaImgTela((ImageView) v);
            if (qtdCartasViradas == 2) {
-               new ChangeImageTask(txtPontos).execute();
+               new ChangeImageTask(txtPontos, this.act, this.pts).execute();
            }
-
-           gameOver = temCartaVirada();
        }
-        else{
+        else
            Log.i("resultado", "fin de jogo, todas as cartas ja forao viradas.");
-       }
+
         gameOver = temCartaVirada();
     }
 
 
     private void mudaImgTela(ImageView img){
         for (Card card : cards) {
-            if(card.getNomeImgView().equals(img.getTag().toString())){
+            if(card.getNomeImgView().equals(img.getTag().toString()) && !card.isFacedUp()){
                 card.setIsFacedUp(true);
                 card.setImageView(img);
                 img.setImageBitmap(card.getBitmap());
@@ -127,7 +129,7 @@ public class CartasControler {
         boolean tem = true;
 
         for(Card card : cards){
-            if(!card.getFaced()) {
+            if(!card.isFacedUp()) {
                 tem = false;
                 break;
             }

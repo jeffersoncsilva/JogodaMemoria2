@@ -43,12 +43,11 @@ public class Card {
     }
 
 
-
-
     public void setImageView(ImageView im){this.img = im;}
 
+
     public int getIdImagem(){return  this.idImagem;}
-    public boolean getFaced(){ return this.isFacedUp; }
+    public boolean isFacedUp(){ return this.isFacedUp; }
     public void setIsFacedUp(boolean value){this.isFacedUp = value;}
     public String getNomeImgView() {return this.nomeImgView;}
     public void setNomeImgView(String nome){this.nomeImgView = nome;}

@@ -4,5 +4,6 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="corBranca">#DCDCDC</color>
-    <color name="preto">#696969</color>
+    <color name="fundoMenuFinal">#80DCDCDC</color>
+    <color name="preto">#000000</color>
 </resources>

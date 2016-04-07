@@ -29,15 +29,17 @@ public class FacilActivity extends Activity {
         txtPontos.setText("Pontos: 0");
 
 
-
-
-
-        controlador = new CartasControler(8, getBaseContext(), txtPontos);
+        controlador = new CartasControler(8, getBaseContext(), txtPontos, this);
     }
 
     @Override
     protected void onDestroy(){
         super.onDestroy();
+        destroyObjetos();
+    }
+
+
+    public void destroyObjetos(){
         controlador = null;
         System.gc();
     }
