@@ -8,4 +8,5 @@
     <string name="pontos">Pontos: </string>
     <string name="txtFinal">Fim de jogo. Sua pontuação foi de: </string>
     <string name="btnVoltar">Voltar Inicio.</string>
+    <string name="facebook_app_id">220453274978398</string>
 </resources>
